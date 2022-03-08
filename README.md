@@ -13,7 +13,7 @@
 
 ![image](https://user-images.githubusercontent.com/74382279/157317785-2baf2def-ea0a-48e6-9e94-1079e55cc2a7.png)
 
-- L'idée est d'importer la lib ``os`` pour exécuter des commandes Bash. Donc je tente d'importer la lib ``os`` pour exécuter ``id``: ``);import os;os.popen('id').read()#``.
+- L'idée est d'importer la lib ``os`` pour exécuter des commandes Bash.  J'importe la lib ``os`` pour exécuter ``id``: ``);import os;os.popen('id').read()#``.
 - Malheur, j'obtiens la réponse ``Blocked``. Je pars du principe que le chall contient un filtre qui match plusieurs fonctions Python.
 <br/>
 
