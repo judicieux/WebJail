@@ -65,4 +65,4 @@ __builtins__.__dict__['__import__']("os").system("ls")
 ```
 Le module préimporté ``reload()`` était match. La variable ``__class__`` pareil.
 Je suis donc parti du principe que je devais utiliser ``getattr()``.
-Merci d'avoir lu cette mini-writeup d'un challenge web que je trouve assez sympa.
+Merci d'avoir lu cette mini-writeup d'un challenge web que j'ai trouvé assez sympa.
