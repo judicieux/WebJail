@@ -54,6 +54,6 @@ Vous avez dû remarquer, j'ai réécrit la fonction ``hex()`` pour éviter une a
 Le serveur me renvoit bien la réponse:
 <br/>
 
-![image](https://user-images.githubusercontent.com/74382279/157323588-d2b559b5-7894-43c3-8a14-2c9bd8b79e00.png)
+![image](https://user-images.githubusercontent.com/74382279/157323813-016de65c-4062-467f-a1a1-b2747ddee541.png)
 
 
