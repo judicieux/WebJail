@@ -19,7 +19,7 @@
 
 ![image](https://user-images.githubusercontent.com/74382279/157318532-29ad4480-d328-4db3-afcd-5042f5be7e0e.png)
 
-- Je vais devoir builtin des fontions à partir de la lib ``__builtins__``.
+- Je vais devoir builtin des fontions à partir de l'objet ``__builtins__``.
 - La méthode ``getattr()`` renvoie la valeur de l'attribut nommé d'un objet. S'il n'est pas trouvé, il renvoie la valeur par défaut fournie à la fonction.
 - ``);geattr(__builtins__,'__imp''ort__')('o''s').popen('id')#``, par défaut j'utilise une méthode de concaténation pour éviter de faire trigger la commande par le filtre.
 - N'oublions pas que la méthode ``read()`` n'est pas acceptée. Dans ce contexte on est supposé d'envoyer la requête en stdout vers un serveur web qu'on hébergera localement pour recept les données ``POST``. Tout ça ``OOB`` (Out of band). Les données ``OOB`` sont transférées via un flux indépendant du flux de données principal dans la bande.
